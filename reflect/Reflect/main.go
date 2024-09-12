@@ -47,10 +47,11 @@ func ReflectTest1(input interface{}) {
 	//获取input的值
 	inputValue := reflect.ValueOf(input)
 	fmt.Println("输入变量的值", inputValue)
-	//通过type获取里面的字段
+
 }
 
 func ReflectTest2(input interface{}) {
+	//通过type获取里面的字段
 	
 }
 
