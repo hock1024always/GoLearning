@@ -33,12 +33,12 @@ func Work3() {
 	}
 }
 
-func test1() {
-	go Work1()
-	go Work2()
-	go Work3()
-	//time.Sleep(10*time.Second)
-}
+//func test1() {
+//	go Work1()
+//	go Work2()
+//	go Work3()
+//	//time.Sleep(10*time.Second)
+//}
 
 func test2() {
 	go Work1()
