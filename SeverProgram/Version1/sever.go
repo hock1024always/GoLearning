@@ -41,7 +41,7 @@ func (this *Server) Start() {
 	//关闭服务器
 	defer listener.Close()
 
-	//接收
+	//接收 Conn是一个网络连接 net.Conn 接口定义了一组方法，用于在网络上读写数据、设置读写超时时间、以及获取连接的本地和远程地址信息等
 	for { //创建一个死循环，直到错误出现
 		conn, err := listener.Accept()
 		if err != nil {
