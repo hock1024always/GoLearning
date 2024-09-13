@@ -42,18 +42,16 @@ func (this *Server) Start() {
 	defer listener.Close()
 
 	//接收
-	var conn net.Conn
 	for { //创建一个死循环，直到错误出现
 		conn, err := listener.Accept()
 		if err != nil {
 			fmt.Println("listener.Accept err:", err)
 			continue //跳出当前循环
 		}
+
+		//处理请求
+		go this.Handler(conn)
+
 	}
-
-	//处理请求
-	go this.Handler(conn)
-
-	//
 
 }
