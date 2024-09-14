@@ -20,7 +20,17 @@ func NewUser(conn net.Conn) *User {
 		conn: conn,              //传入的参数
 	}
 
+	//启动监听当前user channel消息的goroutine
+	go user.ListenMessage()
+
 	return user
 }
 
-//监听User channel的方法 一旦有消息，就发送给对端客户端（使用goroutine）
+// 监听User channel的方法 一旦有消息，就发送给对端客户端（使用goroutine）
+func (this *User) ListenMessage() {
+	for {
+		msg := <-this.C
+
+		this.conn.Write([]byte(msg + "\n"))
+	}
+}
